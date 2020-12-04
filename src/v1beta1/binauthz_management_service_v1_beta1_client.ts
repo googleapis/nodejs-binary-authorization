@@ -1145,9 +1145,7 @@ export class BinauthzManagementServiceV1Beta1Client {
       this.innerApiCalls['listAttestors'] as GaxCall,
       (request as unknown) as RequestType,
       callSettings
-    ) as AsyncIterable<
-      protos.google.cloud.binaryauthorization.v1beta1.IAttestor
-    >;
+    ) as AsyncIterable<protos.google.cloud.binaryauthorization.v1beta1.IAttestor>;
   }
   // --------------------
   // -- Path templates --

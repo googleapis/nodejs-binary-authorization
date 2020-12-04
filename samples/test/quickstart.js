@@ -20,7 +20,6 @@
 const path = require('path');
 const cp = require('child_process');
 const {before, describe, it} = require('mocha');
-const {v4: uuidv4} = require('uuid');
 const {
   BinauthzManagementServiceV1Beta1Client,
 } = require('@google-cloud/binary-authorization');
@@ -40,7 +39,9 @@ describe('Quickstart', () => {
   });
 
   it('should run quickstart', async () => {
-    const stdout = execSync(`node ./quickstart.js projects/${projectId}`, {cwd});
+    const stdout = execSync(`node ./quickstart.js projects/${projectId}`, {
+      cwd,
+    });
     assert(stdout.match(/\[\]/));
   });
 });
