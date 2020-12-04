@@ -17,7 +17,7 @@
 // ** All changes to this file may be overwritten. **
 
 /* eslint-disable node/no-missing-require, no-unused-vars */
-const binaryauthorization = require('@google-cloud/binary-authorization');
+const binaryauthorization = require('binaryauthorization');
 
 function main() {
   const binauthzManagementServiceV1Beta1Client = new binaryauthorization.BinauthzManagementServiceV1Beta1Client();
