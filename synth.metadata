@@ -3,8 +3,8 @@
     {
       "git": {
         "name": ".",
-        "remote": "git@github.com:googleapis/nodejs-binary-authorization.git",
-        "sha": "719880356444440b73ee81bfd20984ab2bd5db44"
+        "remote": "https://github.com/googleapis/nodejs-binary-authorization.git",
+        "sha": "4de212b7c117d89330a88515c79e08ef6e463fe1"
       }
     },
     {
