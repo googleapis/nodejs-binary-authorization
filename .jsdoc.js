@@ -43,7 +43,7 @@ module.exports = {
     copyright: 'Copyright 2021 Google LLC',
     includeDate: false,
     sourceFiles: false,
-    systemName: 'binaryauthorization',
+    systemName: '@google-cloud/binary-authorization',
     theme: 'lumen',
     default: {
       outputSourceFiles: false

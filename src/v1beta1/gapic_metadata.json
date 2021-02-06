@@ -3,7 +3,7 @@
   "comment": "This file maps proto services/RPCs to the corresponding library clients/methods",
   "language": "typescript",
   "protoPackage": "google.cloud.binaryauthorization.v1beta1",
-  "libraryPackage": "binaryauthorization",
+  "libraryPackage": "@google-cloud/binary-authorization",
   "services": {
     "BinauthzManagementServiceV1Beta1": {
       "clients": {
