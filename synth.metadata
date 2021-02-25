@@ -4,15 +4,15 @@
       "git": {
         "name": ".",
         "remote": "git@github.com:googleapis/nodejs-binary-authorization.git",
-        "sha": "4d4ad2e2b90515bd224d0df6f546367f83cebe83"
+        "sha": "c4103ad6cf4dcbd57e74192cbffa422ea0d8d7aa"
       }
     },
     {
       "git": {
         "name": "googleapis",
         "remote": "https://github.com/googleapis/googleapis.git",
-        "sha": "80fafbce83f1d95c3616c7b3f50504a4ad251bfd",
-        "internalRef": "359594504"
+        "sha": "e41506dc28a42bae9b86c7b45e889bdf6d786648",
+        "internalRef": "359620992"
       }
     },
     {
