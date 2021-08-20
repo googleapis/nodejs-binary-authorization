@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.1.7](https://www.github.com/googleapis/nodejs-binary-authorization/compare/v1.1.6...v1.1.7) (2021-08-20)
+
+
+### Bug Fixes
+
+* **build:** migrate to using main branch ([#82](https://www.github.com/googleapis/nodejs-binary-authorization/issues/82)) ([3f11200](https://www.github.com/googleapis/nodejs-binary-authorization/commit/3f112009748af38f5f3939ceca28e49f527b583b))
+
 ### [1.1.6](https://www.github.com/googleapis/nodejs-binary-authorization/compare/v1.1.5...v1.1.6) (2021-08-17)
 
 
