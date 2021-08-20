@@ -149,7 +149,7 @@ Apache Version 2.0
 
 See [LICENSE](https://github.com/googleapis/nodejs-binary-authorization/blob/main/LICENSE)
 
-[client-docs]: https://googleapis.dev/nodejs/binaryauthorization/latest/
+[client-docs]: https://cloud.google.com/nodejs/docs/reference/binary-authorization/latest
 [product-docs]: https://cloud.google.com/binary-authorization/
 [shell_img]: https://gstatic.com/cloudssh/images/open-btn.png
 [projects]: https://console.cloud.google.com/project
