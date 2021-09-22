@@ -12,43 +12,55 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
 'use strict';
 
-function main(attestor) {
-  // [START binaryauthorization_update_attestor_sample]
+function main(parent, attestorId, attestor) {
+  // [START binaryauthorization_create_attestor_sample]
   /**
    * TODO(developer): Uncomment these variables before running the sample.
    */
   /**
-   *  Required. The updated
+   *  Required. The parent of this
+   *  [attestor][google.cloud.binaryauthorization.v1beta1.Attestor].
+   */
+  // const parent = 'abc123'
+  /**
+   *  Required. The
+   *  [attestors][google.cloud.binaryauthorization.v1beta1.Attestor] ID.
+   */
+  // const attestorId = 'abc123'
+  /**
+   *  Required. The initial
    *  [attestor][google.cloud.binaryauthorization.v1beta1.Attestor] value. The
    *  service will overwrite the [attestor
    *  name][google.cloud.binaryauthorization.v1beta1.Attestor.name] field with
-   *  the resource name in the request URL, in the format
-   *  `projects/* /attestors/*`.
+   *  the resource name, in the format `projects/* /attestors/*`.
    */
   // const attestor = ''
 
   // Imports the Binaryauthorization library
-  const {BinauthzManagementServiceV1Beta1Client} = require('@google-cloud/binary-authorization').v1beta1;
+  const {BinauthzManagementServiceV1Beta1Client} =
+    require('@google-cloud/binary-authorization').v1beta1;
 
   // Instantiates a client
-  const binaryauthorizationClient = new BinauthzManagementServiceV1Beta1Client();
+  const binaryauthorizationClient =
+    new BinauthzManagementServiceV1Beta1Client();
 
-  async function updateAttestor() {
+  async function createAttestor() {
     // Construct request
     const request = {
+      parent,
+      attestorId,
       attestor,
     };
 
     // Run request
-    const response = await binaryauthorizationClient.updateAttestor(request);
+    const response = await binaryauthorizationClient.createAttestor(request);
     console.log(response);
   }
 
-  updateAttestor();
-  // [END binaryauthorization_update_attestor_sample]
+  createAttestor();
+  // [END binaryauthorization_create_attestor_sample]
 }
 
 process.on('unhandledRejection', err => {

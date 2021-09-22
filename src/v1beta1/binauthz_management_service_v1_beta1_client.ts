@@ -394,6 +394,10 @@ export class BinauthzManagementServiceV1Beta1Client {
    *   for more details and examples.
    * @example
    * const [response] = await client.getPolicy(request);
+   *
+   * @example <caption>include:samples/generated/v1beta1/binauthz_management_service_v1_beta1.get_policy.js</caption>
+   * region_tag:binaryauthorization_get_policy_sample
+   *
    */
   getPolicy(
     request?: protos.google.cloud.binaryauthorization.v1beta1.IGetPolicyRequest,
@@ -501,6 +505,10 @@ export class BinauthzManagementServiceV1Beta1Client {
    *   for more details and examples.
    * @example
    * const [response] = await client.updatePolicy(request);
+   *
+   * @example <caption>include:samples/generated/v1beta1/binauthz_management_service_v1_beta1.update_policy.js</caption>
+   * region_tag:binaryauthorization_update_policy_sample
+   *
    */
   updatePolicy(
     request?: protos.google.cloud.binaryauthorization.v1beta1.IUpdatePolicyRequest,
@@ -614,6 +622,10 @@ export class BinauthzManagementServiceV1Beta1Client {
    *   for more details and examples.
    * @example
    * const [response] = await client.createAttestor(request);
+   *
+   * @example <caption>include:samples/generated/v1beta1/binauthz_management_service_v1_beta1.create_attestor.js</caption>
+   * region_tag:binaryauthorization_create_attestor_sample
+   *
    */
   createAttestor(
     request?: protos.google.cloud.binaryauthorization.v1beta1.ICreateAttestorRequest,
@@ -716,6 +728,10 @@ export class BinauthzManagementServiceV1Beta1Client {
    *   for more details and examples.
    * @example
    * const [response] = await client.getAttestor(request);
+   *
+   * @example <caption>include:samples/generated/v1beta1/binauthz_management_service_v1_beta1.get_attestor.js</caption>
+   * region_tag:binaryauthorization_get_attestor_sample
+   *
    */
   getAttestor(
     request?: protos.google.cloud.binaryauthorization.v1beta1.IGetAttestorRequest,
@@ -821,6 +837,10 @@ export class BinauthzManagementServiceV1Beta1Client {
    *   for more details and examples.
    * @example
    * const [response] = await client.updateAttestor(request);
+   *
+   * @example <caption>include:samples/generated/v1beta1/binauthz_management_service_v1_beta1.update_attestor.js</caption>
+   * region_tag:binaryauthorization_update_attestor_sample
+   *
    */
   updateAttestor(
     request?: protos.google.cloud.binaryauthorization.v1beta1.IUpdateAttestorRequest,
@@ -923,6 +943,10 @@ export class BinauthzManagementServiceV1Beta1Client {
    *   for more details and examples.
    * @example
    * const [response] = await client.deleteAttestor(request);
+   *
+   * @example <caption>include:samples/generated/v1beta1/binauthz_management_service_v1_beta1.delete_attestor.js</caption>
+   * region_tag:binaryauthorization_delete_attestor_sample
+   *
    */
   deleteAttestor(
     request?: protos.google.cloud.binaryauthorization.v1beta1.IDeleteAttestorRequest,
@@ -1032,6 +1056,10 @@ export class BinauthzManagementServiceV1Beta1Client {
    *   Please see the
    *   [documentation](https://github.com/googleapis/gax-nodejs/blob/master/client-libraries.md#auto-pagination)
    *   for more details and examples.
+   *
+   * @example <caption>include:samples/generated/v1beta1/binauthz_management_service_v1_beta1.list_attestors.js</caption>
+   * region_tag:binaryauthorization_list_attestors_sample
+   *
    */
   listAttestors(
     request?: protos.google.cloud.binaryauthorization.v1beta1.IListAttestorsRequest,
@@ -1104,6 +1132,10 @@ export class BinauthzManagementServiceV1Beta1Client {
    *   Please see the
    *   [documentation](https://github.com/googleapis/gax-nodejs/blob/master/client-libraries.md#auto-pagination)
    *   for more details and examples.
+   *
+   * @example <caption>include:samples/generated/v1beta1/binauthz_management_service_v1_beta1.list_attestors.js</caption>
+   * region_tag:binaryauthorization_list_attestors_sample
+   *
    */
   listAttestorsStream(
     request?: protos.google.cloud.binaryauthorization.v1beta1.IListAttestorsRequest,
@@ -1117,7 +1149,8 @@ export class BinauthzManagementServiceV1Beta1Client {
       gax.routingHeader.fromParams({
         parent: request.parent || '',
       });
-    const callSettings = new gax.CallSettings(options);
+    const defaultCallSettings = this._defaults['listAttestors'];
+    const callSettings = defaultCallSettings.merge(options);
     this.initialize();
     return this.descriptors.page.listAttestors.createStream(
       this.innerApiCalls.listAttestors as gax.GaxCall,
@@ -1159,6 +1192,10 @@ export class BinauthzManagementServiceV1Beta1Client {
    * for await (const response of iterable) {
    *   // process response
    * }
+   *
+   * @example <caption>include:samples/generated/v1beta1/binauthz_management_service_v1_beta1.list_attestors.js</caption>
+   * region_tag:binaryauthorization_list_attestors_sample
+   *
    */
   listAttestorsAsync(
     request?: protos.google.cloud.binaryauthorization.v1beta1.IListAttestorsRequest,
@@ -1173,7 +1210,8 @@ export class BinauthzManagementServiceV1Beta1Client {
         parent: request.parent || '',
       });
     options = options || {};
-    const callSettings = new gax.CallSettings(options);
+    const defaultCallSettings = this._defaults['listAttestors'];
+    const callSettings = defaultCallSettings.merge(options);
     this.initialize();
     return this.descriptors.page.listAttestors.asyncIterate(
       this.innerApiCalls['listAttestors'] as GaxCall,

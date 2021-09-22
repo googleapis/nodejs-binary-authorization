@@ -12,40 +12,41 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
 'use strict';
 
 function main(name) {
-  // [START binaryauthorization_delete_attestor_sample]
+  // [START binaryauthorization_get_attestor_sample]
   /**
    * TODO(developer): Uncomment these variables before running the sample.
    */
   /**
    *  Required. The name of the
-   *  [attestors][google.cloud.binaryauthorization.v1beta1.Attestor] to delete,
+   *  [attestor][google.cloud.binaryauthorization.v1beta1.Attestor] to retrieve,
    *  in the format `projects/* /attestors/*`.
    */
   // const name = 'abc123'
 
   // Imports the Binaryauthorization library
-  const {BinauthzManagementServiceV1Beta1Client} = require('@google-cloud/binary-authorization').v1beta1;
+  const {BinauthzManagementServiceV1Beta1Client} =
+    require('@google-cloud/binary-authorization').v1beta1;
 
   // Instantiates a client
-  const binaryauthorizationClient = new BinauthzManagementServiceV1Beta1Client();
+  const binaryauthorizationClient =
+    new BinauthzManagementServiceV1Beta1Client();
 
-  async function deleteAttestor() {
+  async function getAttestor() {
     // Construct request
     const request = {
       name,
     };
 
     // Run request
-    const response = await binaryauthorizationClient.deleteAttestor(request);
+    const response = await binaryauthorizationClient.getAttestor(request);
     console.log(response);
   }
 
-  deleteAttestor();
-  // [END binaryauthorization_delete_attestor_sample]
+  getAttestor();
+  // [END binaryauthorization_get_attestor_sample]
 }
 
 process.on('unhandledRejection', err => {

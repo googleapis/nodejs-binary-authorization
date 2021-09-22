@@ -12,42 +12,41 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
 'use strict';
 
-function main(policy) {
-  // [START binaryauthorization_update_policy_sample]
+function main(name) {
+  // [START binaryauthorization_delete_attestor_sample]
   /**
    * TODO(developer): Uncomment these variables before running the sample.
    */
   /**
-   *  Required. A new or updated
-   *  [policy][google.cloud.binaryauthorization.v1beta1.Policy] value. The
-   *  service will overwrite the [policy
-   *  name][google.cloud.binaryauthorization.v1beta1.Policy.name] field with the
-   *  resource name in the request URL, in the format `projects/* /policy`.
+   *  Required. The name of the
+   *  [attestors][google.cloud.binaryauthorization.v1beta1.Attestor] to delete,
+   *  in the format `projects/* /attestors/*`.
    */
-  // const policy = ''
+  // const name = 'abc123'
 
   // Imports the Binaryauthorization library
-  const {BinauthzManagementServiceV1Beta1Client} = require('@google-cloud/binary-authorization').v1beta1;
+  const {BinauthzManagementServiceV1Beta1Client} =
+    require('@google-cloud/binary-authorization').v1beta1;
 
   // Instantiates a client
-  const binaryauthorizationClient = new BinauthzManagementServiceV1Beta1Client();
+  const binaryauthorizationClient =
+    new BinauthzManagementServiceV1Beta1Client();
 
-  async function updatePolicy() {
+  async function deleteAttestor() {
     // Construct request
     const request = {
-      policy,
+      name,
     };
 
     // Run request
-    const response = await binaryauthorizationClient.updatePolicy(request);
+    const response = await binaryauthorizationClient.deleteAttestor(request);
     console.log(response);
   }
 
-  updatePolicy();
-  // [END binaryauthorization_update_policy_sample]
+  deleteAttestor();
+  // [END binaryauthorization_delete_attestor_sample]
 }
 
 process.on('unhandledRejection', err => {

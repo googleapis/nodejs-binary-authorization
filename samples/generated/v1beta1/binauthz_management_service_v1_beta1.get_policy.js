@@ -12,40 +12,41 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
 'use strict';
 
 function main(name) {
-  // [START binaryauthorization_get_attestor_sample]
+  // [START binaryauthorization_get_policy_sample]
   /**
    * TODO(developer): Uncomment these variables before running the sample.
    */
   /**
-   *  Required. The name of the
-   *  [attestor][google.cloud.binaryauthorization.v1beta1.Attestor] to retrieve,
-   *  in the format `projects/* /attestors/*`.
+   *  Required. The resource name of the
+   *  [policy][google.cloud.binaryauthorization.v1beta1.Policy] to retrieve, in
+   *  the format `projects/* /policy`.
    */
   // const name = 'abc123'
 
   // Imports the Binaryauthorization library
-  const {BinauthzManagementServiceV1Beta1Client} = require('@google-cloud/binary-authorization').v1beta1;
+  const {BinauthzManagementServiceV1Beta1Client} =
+    require('@google-cloud/binary-authorization').v1beta1;
 
   // Instantiates a client
-  const binaryauthorizationClient = new BinauthzManagementServiceV1Beta1Client();
+  const binaryauthorizationClient =
+    new BinauthzManagementServiceV1Beta1Client();
 
-  async function getAttestor() {
+  async function getPolicy() {
     // Construct request
     const request = {
       name,
     };
 
     // Run request
-    const response = await binaryauthorizationClient.getAttestor(request);
+    const response = await binaryauthorizationClient.getPolicy(request);
     console.log(response);
   }
 
-  getAttestor();
-  // [END binaryauthorization_get_attestor_sample]
+  getPolicy();
+  // [END binaryauthorization_get_policy_sample]
 }
 
 process.on('unhandledRejection', err => {

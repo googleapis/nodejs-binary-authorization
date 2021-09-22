@@ -12,40 +12,43 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
 'use strict';
 
-function main(name) {
-  // [START binaryauthorization_get_policy_sample]
+function main(policy) {
+  // [START binaryauthorization_update_policy_sample]
   /**
    * TODO(developer): Uncomment these variables before running the sample.
    */
   /**
-   *  Required. The resource name of the
-   *  [policy][google.cloud.binaryauthorization.v1beta1.Policy] to retrieve, in
-   *  the format `projects/* /policy`.
+   *  Required. A new or updated
+   *  [policy][google.cloud.binaryauthorization.v1beta1.Policy] value. The
+   *  service will overwrite the [policy
+   *  name][google.cloud.binaryauthorization.v1beta1.Policy.name] field with the
+   *  resource name in the request URL, in the format `projects/* /policy`.
    */
-  // const name = 'abc123'
+  // const policy = ''
 
   // Imports the Binaryauthorization library
-  const {BinauthzManagementServiceV1Beta1Client} = require('@google-cloud/binary-authorization').v1beta1;
+  const {BinauthzManagementServiceV1Beta1Client} =
+    require('@google-cloud/binary-authorization').v1beta1;
 
   // Instantiates a client
-  const binaryauthorizationClient = new BinauthzManagementServiceV1Beta1Client();
+  const binaryauthorizationClient =
+    new BinauthzManagementServiceV1Beta1Client();
 
-  async function getPolicy() {
+  async function updatePolicy() {
     // Construct request
     const request = {
-      name,
+      policy,
     };
 
     // Run request
-    const response = await binaryauthorizationClient.getPolicy(request);
+    const response = await binaryauthorizationClient.updatePolicy(request);
     console.log(response);
   }
 
-  getPolicy();
-  // [END binaryauthorization_get_policy_sample]
+  updatePolicy();
+  // [END binaryauthorization_update_policy_sample]
 }
 
 process.on('unhandledRejection', err => {
