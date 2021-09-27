@@ -16,6 +16,7 @@
 // ** https://github.com/googleapis/synthtool **
 // ** All changes to this file may be overwritten. **
 
+import * as v1 from './v1';
 import * as v1beta1 from './v1beta1';
 
 const BinauthzManagementServiceV1Beta1Client =
@@ -23,7 +24,7 @@ const BinauthzManagementServiceV1Beta1Client =
 type BinauthzManagementServiceV1Beta1Client =
   v1beta1.BinauthzManagementServiceV1Beta1Client;
 
-export {v1beta1, BinauthzManagementServiceV1Beta1Client};
-export default {v1beta1, BinauthzManagementServiceV1Beta1Client};
+export {v1, v1beta1, BinauthzManagementServiceV1Beta1Client};
+export default {v1, v1beta1, BinauthzManagementServiceV1Beta1Client};
 import * as protos from '../protos/protos';
 export {protos};
