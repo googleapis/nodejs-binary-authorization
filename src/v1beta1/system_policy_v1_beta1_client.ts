@@ -24,19 +24,19 @@ import * as protos from '../../protos/protos';
 import jsonProtos = require('../../protos/protos.json');
 /**
  * Client JSON configuration object, loaded from
- * `src/v1/validation_helper_v1_client_config.json`.
+ * `src/v1beta1/system_policy_v1_beta1_client_config.json`.
  * This file defines retry strategy and timeouts for all API methods in this library.
  */
-import * as gapicConfig from './validation_helper_v1_client_config.json';
+import * as gapicConfig from './system_policy_v1_beta1_client_config.json';
 
 const version = require('../../../package.json').version;
 
 /**
- *  BinAuthz Attestor verification
+ *  API for working with the system policy.
  * @class
- * @memberof v1
+ * @memberof v1beta1
  */
-export class ValidationHelperV1Client {
+export class SystemPolicyV1Beta1Client {
   private _terminated = false;
   private _opts: ClientOptions;
   private _providedCustomServicePath: boolean;
@@ -54,10 +54,10 @@ export class ValidationHelperV1Client {
   warn: (code: string, message: string, warnType?: string) => void;
   innerApiCalls: {[name: string]: Function};
   pathTemplates: {[name: string]: gax.PathTemplate};
-  validationHelperV1Stub?: Promise<{[name: string]: Function}>;
+  systemPolicyV1Beta1Stub?: Promise<{[name: string]: Function}>;
 
   /**
-   * Construct an instance of ValidationHelperV1Client.
+   * Construct an instance of SystemPolicyV1Beta1Client.
    *
    * @param {object} [options] - The configuration object.
    * The options accepted by the constructor are described in detail
@@ -92,12 +92,17 @@ export class ValidationHelperV1Client {
    */
   constructor(opts?: ClientOptions) {
     // Ensure that options include all the required fields.
-    const staticMembers = this.constructor as typeof ValidationHelperV1Client;
-    const servicePath = opts?.servicePath || opts?.apiEndpoint || staticMembers.servicePath;
-    this._providedCustomServicePath = !!(opts?.servicePath || opts?.apiEndpoint);
+    const staticMembers = this.constructor as typeof SystemPolicyV1Beta1Client;
+    const servicePath =
+      opts?.servicePath || opts?.apiEndpoint || staticMembers.servicePath;
+    this._providedCustomServicePath = !!(
+      opts?.servicePath || opts?.apiEndpoint
+    );
     const port = opts?.port || staticMembers.port;
     const clientConfig = opts?.clientConfig ?? {};
-    const fallback = opts?.fallback ?? (typeof window !== 'undefined' && typeof window?.fetch === 'function');
+    const fallback =
+      opts?.fallback ??
+      (typeof window !== 'undefined' && typeof window?.fetch === 'function');
     opts = Object.assign({servicePath, port, clientConfig, fallback}, opts);
 
     // If scopes are unset in options and we're connecting to a non-default endpoint, set scopes just in case.
@@ -115,7 +120,7 @@ export class ValidationHelperV1Client {
     this._opts = opts;
 
     // Save the auth object to the client, for use by other methods.
-    this.auth = (this._gaxGrpc.auth as gax.GoogleAuth);
+    this.auth = this._gaxGrpc.auth as gax.GoogleAuth;
 
     // Set useJWTAccessWithScope on the auth object.
     this.auth.useJWTAccessWithScope = true;
@@ -129,10 +134,7 @@ export class ValidationHelperV1Client {
     }
 
     // Determine the client header string.
-    const clientHeader = [
-      `gax/${this._gaxModule.version}`,
-      `gapic/${version}`,
-    ];
+    const clientHeader = [`gax/${this._gaxModule.version}`, `gapic/${version}`];
     if (typeof process !== 'undefined' && 'versions' in process) {
       clientHeader.push(`gl-node/${process.versions.node}`);
     } else {
@@ -140,7 +142,7 @@ export class ValidationHelperV1Client {
     }
     if (!opts.fallback) {
       clientHeader.push(`grpc/${this._gaxGrpc.grpcVersion}`);
-    } else if (opts.fallback === 'rest' ) {
+    } else if (opts.fallback === 'rest') {
       clientHeader.push(`rest/${this._gaxGrpc.grpcVersion}`);
     }
     if (opts.libName && opts.libVersion) {
@@ -169,8 +171,11 @@ export class ValidationHelperV1Client {
 
     // Put together the default options sent with requests.
     this._defaults = this._gaxGrpc.constructSettings(
-        'google.cloud.binaryauthorization.v1.ValidationHelperV1', gapicConfig as gax.ClientConfig,
-        opts.clientConfig || {}, {'x-goog-api-client': clientHeader.join(' ')});
+      'google.cloud.binaryauthorization.v1beta1.SystemPolicyV1Beta1',
+      gapicConfig as gax.ClientConfig,
+      opts.clientConfig || {},
+      {'x-goog-api-client': clientHeader.join(' ')}
+    );
 
     // Set up a dictionary of "inner API calls"; the core implementation
     // of calling the API is handled in `google-gax`, with this code
@@ -194,38 +199,43 @@ export class ValidationHelperV1Client {
    */
   initialize() {
     // If the client stub promise is already initialized, return immediately.
-    if (this.validationHelperV1Stub) {
-      return this.validationHelperV1Stub;
+    if (this.systemPolicyV1Beta1Stub) {
+      return this.systemPolicyV1Beta1Stub;
     }
 
     // Put together the "service stub" for
-    // google.cloud.binaryauthorization.v1.ValidationHelperV1.
-    this.validationHelperV1Stub = this._gaxGrpc.createStub(
-        this._opts.fallback ?
-          (this._protos as protobuf.Root).lookupService('google.cloud.binaryauthorization.v1.ValidationHelperV1') :
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          (this._protos as any).google.cloud.binaryauthorization.v1.ValidationHelperV1,
-        this._opts, this._providedCustomServicePath) as Promise<{[method: string]: Function}>;
+    // google.cloud.binaryauthorization.v1beta1.SystemPolicyV1Beta1.
+    this.systemPolicyV1Beta1Stub = this._gaxGrpc.createStub(
+      this._opts.fallback
+        ? (this._protos as protobuf.Root).lookupService(
+            'google.cloud.binaryauthorization.v1beta1.SystemPolicyV1Beta1'
+          )
+        : // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          (this._protos as any).google.cloud.binaryauthorization.v1beta1
+            .SystemPolicyV1Beta1,
+      this._opts,
+      this._providedCustomServicePath
+    ) as Promise<{[method: string]: Function}>;
 
     // Iterate over each of the methods that the service provides
     // and create an API call method for each.
-    const validationHelperV1StubMethods =
-        ['validateAttestationOccurrence'];
-    for (const methodName of validationHelperV1StubMethods) {
-      const callPromise = this.validationHelperV1Stub.then(
-        stub => (...args: Array<{}>) => {
-          if (this._terminated) {
-            return Promise.reject('The client has already been closed.');
-          }
-          const func = stub[methodName];
-          return func.apply(stub, args);
-        },
-        (err: Error|null|undefined) => () => {
+    const systemPolicyV1Beta1StubMethods = ['getSystemPolicy'];
+    for (const methodName of systemPolicyV1Beta1StubMethods) {
+      const callPromise = this.systemPolicyV1Beta1Stub.then(
+        stub =>
+          (...args: Array<{}>) => {
+            if (this._terminated) {
+              return Promise.reject('The client has already been closed.');
+            }
+            const func = stub[methodName];
+            return func.apply(stub, args);
+          },
+        (err: Error | null | undefined) => () => {
           throw err;
-        });
+        }
+      );
 
-      const descriptor =
-        undefined;
+      const descriptor = undefined;
       const apiCall = this._gaxModule.createApiCall(
         callPromise,
         this._defaults[methodName],
@@ -235,7 +245,7 @@ export class ValidationHelperV1Client {
       this.innerApiCalls[methodName] = apiCall;
     }
 
-    return this.validationHelperV1Stub;
+    return this.systemPolicyV1Beta1Stub;
   }
 
   /**
@@ -269,9 +279,7 @@ export class ValidationHelperV1Client {
    * @returns {string[]} List of default scopes.
    */
   static get scopes() {
-    return [
-      'https://www.googleapis.com/auth/cloud-platform'
-    ];
+    return ['https://www.googleapis.com/auth/cloud-platform'];
   }
 
   getProjectId(): Promise<string>;
@@ -280,8 +288,9 @@ export class ValidationHelperV1Client {
    * Return the project ID used by this class.
    * @returns {Promise} A promise that resolves to string containing the project ID.
    */
-  getProjectId(callback?: Callback<string, undefined, undefined>):
-      Promise<string>|void {
+  getProjectId(
+    callback?: Callback<string, undefined, undefined>
+  ): Promise<string> | void {
     if (callback) {
       this.auth.getProjectId(callback);
       return;
@@ -292,90 +301,103 @@ export class ValidationHelperV1Client {
   // -------------------
   // -- Service calls --
   // -------------------
-  validateAttestationOccurrence(
-      request?: protos.google.cloud.binaryauthorization.v1.IValidateAttestationOccurrenceRequest,
-      options?: CallOptions):
-      Promise<[
-        protos.google.cloud.binaryauthorization.v1.IValidateAttestationOccurrenceResponse,
-        protos.google.cloud.binaryauthorization.v1.IValidateAttestationOccurrenceRequest|undefined, {}|undefined
-      ]>;
-  validateAttestationOccurrence(
-      request: protos.google.cloud.binaryauthorization.v1.IValidateAttestationOccurrenceRequest,
-      options: CallOptions,
-      callback: Callback<
-          protos.google.cloud.binaryauthorization.v1.IValidateAttestationOccurrenceResponse,
-          protos.google.cloud.binaryauthorization.v1.IValidateAttestationOccurrenceRequest|null|undefined,
-          {}|null|undefined>): void;
-  validateAttestationOccurrence(
-      request: protos.google.cloud.binaryauthorization.v1.IValidateAttestationOccurrenceRequest,
-      callback: Callback<
-          protos.google.cloud.binaryauthorization.v1.IValidateAttestationOccurrenceResponse,
-          protos.google.cloud.binaryauthorization.v1.IValidateAttestationOccurrenceRequest|null|undefined,
-          {}|null|undefined>): void;
-/**
- * Returns whether the given Attestation for the given image URI
- * was signed by the given Attestor
- *
- * @param {Object} request
- *   The request object that will be sent.
- * @param {string} request.attestor
- *   Required. The resource name of the {@link google.cloud.binaryauthorization.v1.Attestor|Attestor} of the
- *   {@link grafeas.v1.Occurrence|occurrence}, in the format
- *   `projects/* /attestors/*`.
- * @param {grafeas.v1.AttestationOccurrence} request.attestation
- *   Required. An {@link grafeas.v1.AttestationOccurrence|AttestationOccurrence} to
- *   be checked that it can be verified by the Attestor. It does not have to be
- *   an existing entity in Container Analysis. It must otherwise be a valid
- *   AttestationOccurrence.
- * @param {string} request.occurrenceNote
- *   Required. The resource name of the {@link grafeas.v1.Note|Note} to which the
- *   containing {@link grafeas.v1.Occurrence|Occurrence} is associated.
- * @param {string} request.occurrenceResourceUri
- *   Required. The URI of the artifact (e.g. container image) that is the
- *   subject of the containing {@link grafeas.v1.Occurrence|Occurrence}.
- * @param {object} [options]
- *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
- * @returns {Promise} - The promise which resolves to an array.
- *   The first element of the array is an object representing [ValidateAttestationOccurrenceResponse]{@link google.cloud.binaryauthorization.v1.ValidateAttestationOccurrenceResponse}.
- *   Please see the
- *   [documentation](https://github.com/googleapis/gax-nodejs/blob/master/client-libraries.md#regular-methods)
- *   for more details and examples.
- * @example
- * const [response] = await client.validateAttestationOccurrence(request);
- */
-  validateAttestationOccurrence(
-      request?: protos.google.cloud.binaryauthorization.v1.IValidateAttestationOccurrenceRequest,
-      optionsOrCallback?: CallOptions|Callback<
-          protos.google.cloud.binaryauthorization.v1.IValidateAttestationOccurrenceResponse,
-          protos.google.cloud.binaryauthorization.v1.IValidateAttestationOccurrenceRequest|null|undefined,
-          {}|null|undefined>,
-      callback?: Callback<
-          protos.google.cloud.binaryauthorization.v1.IValidateAttestationOccurrenceResponse,
-          protos.google.cloud.binaryauthorization.v1.IValidateAttestationOccurrenceRequest|null|undefined,
-          {}|null|undefined>):
-      Promise<[
-        protos.google.cloud.binaryauthorization.v1.IValidateAttestationOccurrenceResponse,
-        protos.google.cloud.binaryauthorization.v1.IValidateAttestationOccurrenceRequest|undefined, {}|undefined
-      ]>|void {
+  getSystemPolicy(
+    request?: protos.google.cloud.binaryauthorization.v1beta1.IGetSystemPolicyRequest,
+    options?: CallOptions
+  ): Promise<
+    [
+      protos.google.cloud.binaryauthorization.v1beta1.IPolicy,
+      (
+        | protos.google.cloud.binaryauthorization.v1beta1.IGetSystemPolicyRequest
+        | undefined
+      ),
+      {} | undefined
+    ]
+  >;
+  getSystemPolicy(
+    request: protos.google.cloud.binaryauthorization.v1beta1.IGetSystemPolicyRequest,
+    options: CallOptions,
+    callback: Callback<
+      protos.google.cloud.binaryauthorization.v1beta1.IPolicy,
+      | protos.google.cloud.binaryauthorization.v1beta1.IGetSystemPolicyRequest
+      | null
+      | undefined,
+      {} | null | undefined
+    >
+  ): void;
+  getSystemPolicy(
+    request: protos.google.cloud.binaryauthorization.v1beta1.IGetSystemPolicyRequest,
+    callback: Callback<
+      protos.google.cloud.binaryauthorization.v1beta1.IPolicy,
+      | protos.google.cloud.binaryauthorization.v1beta1.IGetSystemPolicyRequest
+      | null
+      | undefined,
+      {} | null | undefined
+    >
+  ): void;
+  /**
+   * Gets the current system policy in the specified location.
+   *
+   * @param {Object} request
+   *   The request object that will be sent.
+   * @param {string} request.name
+   *   Required. The resource name, in the format `locations/* /policy`.
+   *   Note that the system policy is not associated with a project.
+   * @param {object} [options]
+   *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
+   * @returns {Promise} - The promise which resolves to an array.
+   *   The first element of the array is an object representing [Policy]{@link google.cloud.binaryauthorization.v1beta1.Policy}.
+   *   Please see the
+   *   [documentation](https://github.com/googleapis/gax-nodejs/blob/master/client-libraries.md#regular-methods)
+   *   for more details and examples.
+   * @example
+   * const [response] = await client.getSystemPolicy(request);
+   */
+  getSystemPolicy(
+    request?: protos.google.cloud.binaryauthorization.v1beta1.IGetSystemPolicyRequest,
+    optionsOrCallback?:
+      | CallOptions
+      | Callback<
+          protos.google.cloud.binaryauthorization.v1beta1.IPolicy,
+          | protos.google.cloud.binaryauthorization.v1beta1.IGetSystemPolicyRequest
+          | null
+          | undefined,
+          {} | null | undefined
+        >,
+    callback?: Callback<
+      protos.google.cloud.binaryauthorization.v1beta1.IPolicy,
+      | protos.google.cloud.binaryauthorization.v1beta1.IGetSystemPolicyRequest
+      | null
+      | undefined,
+      {} | null | undefined
+    >
+  ): Promise<
+    [
+      protos.google.cloud.binaryauthorization.v1beta1.IPolicy,
+      (
+        | protos.google.cloud.binaryauthorization.v1beta1.IGetSystemPolicyRequest
+        | undefined
+      ),
+      {} | undefined
+    ]
+  > | void {
     request = request || {};
     let options: CallOptions;
     if (typeof optionsOrCallback === 'function' && callback === undefined) {
       callback = optionsOrCallback;
       options = {};
-    }
-    else {
+    } else {
       options = optionsOrCallback as CallOptions;
     }
     options = options || {};
     options.otherArgs = options.otherArgs || {};
     options.otherArgs.headers = options.otherArgs.headers || {};
-    options.otherArgs.headers[
-      'x-goog-request-params'
-    ] = gax.routingHeader.fromParams({
-      'attestor': request.attestor || '',
-    });
+    options.otherArgs.headers['x-goog-request-params'] =
+      gax.routingHeader.fromParams({
+        name: request.name || '',
+      });
     this.initialize();
-    return this.innerApiCalls.validateAttestationOccurrence(request, options, callback);
+    return this.innerApiCalls.getSystemPolicy(request, options, callback);
   }
 
   // --------------------
@@ -389,7 +411,7 @@ export class ValidationHelperV1Client {
    * @param {string} attestor
    * @returns {string} Resource name string.
    */
-  attestorPath(project:string,attestor:string) {
+  attestorPath(project: string, attestor: string) {
     return this.pathTemplates.attestorPathTemplate.render({
       project: project,
       attestor: attestor,
@@ -424,7 +446,7 @@ export class ValidationHelperV1Client {
    * @param {string} location
    * @returns {string} Resource name string.
    */
-  locationPolicyPath(location:string) {
+  locationPolicyPath(location: string) {
     return this.pathTemplates.locationPolicyPathTemplate.render({
       location: location,
     });
@@ -438,7 +460,9 @@ export class ValidationHelperV1Client {
    * @returns {string} A string representing the location.
    */
   matchLocationFromLocationPolicyName(locationPolicyName: string) {
-    return this.pathTemplates.locationPolicyPathTemplate.match(locationPolicyName).location;
+    return this.pathTemplates.locationPolicyPathTemplate.match(
+      locationPolicyName
+    ).location;
   }
 
   /**
@@ -447,7 +471,7 @@ export class ValidationHelperV1Client {
    * @param {string} project
    * @returns {string} Resource name string.
    */
-  projectPath(project:string) {
+  projectPath(project: string) {
     return this.pathTemplates.projectPathTemplate.render({
       project: project,
     });
@@ -470,7 +494,7 @@ export class ValidationHelperV1Client {
    * @param {string} project
    * @returns {string} Resource name string.
    */
-  projectPolicyPath(project:string) {
+  projectPolicyPath(project: string) {
     return this.pathTemplates.projectPolicyPathTemplate.render({
       project: project,
     });
@@ -484,7 +508,8 @@ export class ValidationHelperV1Client {
    * @returns {string} A string representing the project.
    */
   matchProjectFromProjectPolicyName(projectPolicyName: string) {
-    return this.pathTemplates.projectPolicyPathTemplate.match(projectPolicyName).project;
+    return this.pathTemplates.projectPolicyPathTemplate.match(projectPolicyName)
+      .project;
   }
 
   /**
@@ -496,7 +521,7 @@ export class ValidationHelperV1Client {
   close(): Promise<void> {
     this.initialize();
     if (!this._terminated) {
-      return this.validationHelperV1Stub!.then(stub => {
+      return this.systemPolicyV1Beta1Stub!.then(stub => {
         this._terminated = true;
         stub.close();
       });
