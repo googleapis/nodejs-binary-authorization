@@ -13,5 +13,5 @@
   "issue_tracker": "https://github.com/googleapis/nodejs-binary-authorization/issues",
   "codeowner_team": "@googleapis/cicd",
   "api_shortname": "binaryauthorization",
-  "library_type": ""
+  "library_type": "GAPIC_AUTO"
 }
