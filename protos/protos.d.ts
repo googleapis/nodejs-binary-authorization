@@ -954,49 +954,49 @@ export namespace google {
                 namespace BinauthzManagementServiceV1 {
 
                     /**
-                     * Callback as used by {@link google.cloud.binaryauthorization.v1.BinauthzManagementServiceV1#getPolicy}.
+                     * Callback as used by {@link google.cloud.binaryauthorization.v1.BinauthzManagementServiceV1|getPolicy}.
                      * @param error Error, if any
                      * @param [response] Policy
                      */
                     type GetPolicyCallback = (error: (Error|null), response?: google.cloud.binaryauthorization.v1.Policy) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.binaryauthorization.v1.BinauthzManagementServiceV1#updatePolicy}.
+                     * Callback as used by {@link google.cloud.binaryauthorization.v1.BinauthzManagementServiceV1|updatePolicy}.
                      * @param error Error, if any
                      * @param [response] Policy
                      */
                     type UpdatePolicyCallback = (error: (Error|null), response?: google.cloud.binaryauthorization.v1.Policy) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.binaryauthorization.v1.BinauthzManagementServiceV1#createAttestor}.
+                     * Callback as used by {@link google.cloud.binaryauthorization.v1.BinauthzManagementServiceV1|createAttestor}.
                      * @param error Error, if any
                      * @param [response] Attestor
                      */
                     type CreateAttestorCallback = (error: (Error|null), response?: google.cloud.binaryauthorization.v1.Attestor) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.binaryauthorization.v1.BinauthzManagementServiceV1#getAttestor}.
+                     * Callback as used by {@link google.cloud.binaryauthorization.v1.BinauthzManagementServiceV1|getAttestor}.
                      * @param error Error, if any
                      * @param [response] Attestor
                      */
                     type GetAttestorCallback = (error: (Error|null), response?: google.cloud.binaryauthorization.v1.Attestor) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.binaryauthorization.v1.BinauthzManagementServiceV1#updateAttestor}.
+                     * Callback as used by {@link google.cloud.binaryauthorization.v1.BinauthzManagementServiceV1|updateAttestor}.
                      * @param error Error, if any
                      * @param [response] Attestor
                      */
                     type UpdateAttestorCallback = (error: (Error|null), response?: google.cloud.binaryauthorization.v1.Attestor) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.binaryauthorization.v1.BinauthzManagementServiceV1#listAttestors}.
+                     * Callback as used by {@link google.cloud.binaryauthorization.v1.BinauthzManagementServiceV1|listAttestors}.
                      * @param error Error, if any
                      * @param [response] ListAttestorsResponse
                      */
                     type ListAttestorsCallback = (error: (Error|null), response?: google.cloud.binaryauthorization.v1.ListAttestorsResponse) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.binaryauthorization.v1.BinauthzManagementServiceV1#deleteAttestor}.
+                     * Callback as used by {@link google.cloud.binaryauthorization.v1.BinauthzManagementServiceV1|deleteAttestor}.
                      * @param error Error, if any
                      * @param [response] Empty
                      */
@@ -1041,7 +1041,7 @@ export namespace google {
                 namespace SystemPolicyV1 {
 
                     /**
-                     * Callback as used by {@link google.cloud.binaryauthorization.v1.SystemPolicyV1#getSystemPolicy}.
+                     * Callback as used by {@link google.cloud.binaryauthorization.v1.SystemPolicyV1|getSystemPolicy}.
                      * @param error Error, if any
                      * @param [response] Policy
                      */
@@ -1086,7 +1086,7 @@ export namespace google {
                 namespace ValidationHelperV1 {
 
                     /**
-                     * Callback as used by {@link google.cloud.binaryauthorization.v1.ValidationHelperV1#validateAttestationOccurrence}.
+                     * Callback as used by {@link google.cloud.binaryauthorization.v1.ValidationHelperV1|validateAttestationOccurrence}.
                      * @param error Error, if any
                      * @param [response] ValidateAttestationOccurrenceResponse
                      */
@@ -3506,49 +3506,49 @@ export namespace google {
                 namespace BinauthzManagementServiceV1Beta1 {
 
                     /**
-                     * Callback as used by {@link google.cloud.binaryauthorization.v1beta1.BinauthzManagementServiceV1Beta1#getPolicy}.
+                     * Callback as used by {@link google.cloud.binaryauthorization.v1beta1.BinauthzManagementServiceV1Beta1|getPolicy}.
                      * @param error Error, if any
                      * @param [response] Policy
                      */
                     type GetPolicyCallback = (error: (Error|null), response?: google.cloud.binaryauthorization.v1beta1.Policy) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.binaryauthorization.v1beta1.BinauthzManagementServiceV1Beta1#updatePolicy}.
+                     * Callback as used by {@link google.cloud.binaryauthorization.v1beta1.BinauthzManagementServiceV1Beta1|updatePolicy}.
                      * @param error Error, if any
                      * @param [response] Policy
                      */
                     type UpdatePolicyCallback = (error: (Error|null), response?: google.cloud.binaryauthorization.v1beta1.Policy) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.binaryauthorization.v1beta1.BinauthzManagementServiceV1Beta1#createAttestor}.
+                     * Callback as used by {@link google.cloud.binaryauthorization.v1beta1.BinauthzManagementServiceV1Beta1|createAttestor}.
                      * @param error Error, if any
                      * @param [response] Attestor
                      */
                     type CreateAttestorCallback = (error: (Error|null), response?: google.cloud.binaryauthorization.v1beta1.Attestor) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.binaryauthorization.v1beta1.BinauthzManagementServiceV1Beta1#getAttestor}.
+                     * Callback as used by {@link google.cloud.binaryauthorization.v1beta1.BinauthzManagementServiceV1Beta1|getAttestor}.
                      * @param error Error, if any
                      * @param [response] Attestor
                      */
                     type GetAttestorCallback = (error: (Error|null), response?: google.cloud.binaryauthorization.v1beta1.Attestor) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.binaryauthorization.v1beta1.BinauthzManagementServiceV1Beta1#updateAttestor}.
+                     * Callback as used by {@link google.cloud.binaryauthorization.v1beta1.BinauthzManagementServiceV1Beta1|updateAttestor}.
                      * @param error Error, if any
                      * @param [response] Attestor
                      */
                     type UpdateAttestorCallback = (error: (Error|null), response?: google.cloud.binaryauthorization.v1beta1.Attestor) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.binaryauthorization.v1beta1.BinauthzManagementServiceV1Beta1#listAttestors}.
+                     * Callback as used by {@link google.cloud.binaryauthorization.v1beta1.BinauthzManagementServiceV1Beta1|listAttestors}.
                      * @param error Error, if any
                      * @param [response] ListAttestorsResponse
                      */
                     type ListAttestorsCallback = (error: (Error|null), response?: google.cloud.binaryauthorization.v1beta1.ListAttestorsResponse) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.binaryauthorization.v1beta1.BinauthzManagementServiceV1Beta1#deleteAttestor}.
+                     * Callback as used by {@link google.cloud.binaryauthorization.v1beta1.BinauthzManagementServiceV1Beta1|deleteAttestor}.
                      * @param error Error, if any
                      * @param [response] Empty
                      */
@@ -3683,7 +3683,7 @@ export namespace google {
                 namespace SystemPolicyV1Beta1 {
 
                     /**
-                     * Callback as used by {@link google.cloud.binaryauthorization.v1beta1.SystemPolicyV1Beta1#getSystemPolicy}.
+                     * Callback as used by {@link google.cloud.binaryauthorization.v1beta1.SystemPolicyV1Beta1|getSystemPolicy}.
                      * @param error Error, if any
                      * @param [response] Policy
                      */
@@ -6890,6 +6890,9 @@ export namespace google {
             /** FieldOptions lazy */
             lazy?: (boolean|null);
 
+            /** FieldOptions unverifiedLazy */
+            unverifiedLazy?: (boolean|null);
+
             /** FieldOptions deprecated */
             deprecated?: (boolean|null);
 
@@ -6926,6 +6929,9 @@ export namespace google {
 
             /** FieldOptions lazy. */
             public lazy: boolean;
+
+            /** FieldOptions unverifiedLazy. */
+            public unverifiedLazy: boolean;
 
             /** FieldOptions deprecated. */
             public deprecated: boolean;
