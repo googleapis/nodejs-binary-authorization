@@ -20,8 +20,7 @@
 const binaryauthorization = require('@google-cloud/binary-authorization');
 
 function main() {
-  const binauthzManagementServiceV1Client =
-    new binaryauthorization.BinauthzManagementServiceV1Client();
+  const binauthzManagementServiceV1Client = new binaryauthorization.BinauthzManagementServiceV1Client();
   const systemPolicyV1Client = new binaryauthorization.SystemPolicyV1Client();
 }
 
