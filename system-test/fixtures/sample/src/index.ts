@@ -27,9 +27,7 @@ function doStuffWithBinauthzManagementServiceV1Beta1Client(
 ) {
   client.close();
 }
-function doStuffWithSystemPolicyV1Beta1Client(
-  client: SystemPolicyV1Client
-) {
+function doStuffWithSystemPolicyV1Beta1Client(client: SystemPolicyV1Client) {
   client.close();
 }
 
