@@ -33,7 +33,8 @@ function doStuffWithSystemPolicyV1Client(client: SystemPolicyV1Client) {
 
 function main() {
   // check that the client instance can be created
-  const binauthzManagementServiceV1Client = new BinauthzManagementServiceV1Client();
+  const binauthzManagementServiceV1Client =
+    new BinauthzManagementServiceV1Client();
   doStuffWithBinauthzManagementServiceV1Beta1Client(
     binauthzManagementServiceV1Client
   );
